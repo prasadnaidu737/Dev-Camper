@@ -15,9 +15,7 @@ app.use(express.json())
 app.use("/app/v1/bootcamp", bootcamp);
 const PORT=4000
 
-// mongoose.connect("mongodb://localhost/playgroud")
-// .then(()=>console.log("connected to DB"))
-// .catch(err=>console.log(err))
+
 db()
 
 app.listen(PORT,()=>{

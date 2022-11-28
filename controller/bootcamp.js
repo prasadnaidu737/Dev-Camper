@@ -1,5 +1,5 @@
 const Course=require("../Models/course")
-
+const Author=require("../Models/author")
 // @desc      show all bootcamps
 // @method     GET
 // route      /app/v1/bootcamp
@@ -66,3 +66,19 @@ exports.deleteBootcamp=async(req,res)=>{
 }
 
 
+// create author
+
+exports.createAuthor=async(req,res)=>{
+  const author=new Author({
+    name:req.body.name,
+    location:req.body.location,
+    course:req.body.course
+  })
+  const result =await author.save()
+  res.status(200).send(result)
+}
+
+exports.getAuthors=async(req,res)=>{
+  const result= await Author.find().populate('course','author -_id')
+  res.send(result)
+}
