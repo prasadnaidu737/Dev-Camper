@@ -1,6 +1,7 @@
 const express=require('express')
 const dotenv=require('dotenv').config()
 const bootcamp=require("./routes/bootcamp")
+const user=require('./routes/user')
 const mongoose=require('mongoose')
 const morgan=require('morgan')
 const {db}=require('./Database/db')
@@ -13,6 +14,7 @@ if (process.env.NODE_ENV=="developement") {
 
 app.use(express.json())
 app.use("/app/v1/bootcamp", bootcamp);
+app.use('/app/v1/user',user)
 const PORT=4000
 
 

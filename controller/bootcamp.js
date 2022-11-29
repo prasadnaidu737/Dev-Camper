@@ -1,5 +1,6 @@
 const Course=require("../Models/course")
 const Author=require("../Models/author")
+const auth=require("../middleware/auth")
 // @desc      show all bootcamps
 // @method     GET
 // route      /app/v1/bootcamp
